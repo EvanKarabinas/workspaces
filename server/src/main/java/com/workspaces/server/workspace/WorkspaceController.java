@@ -18,17 +18,21 @@ public class WorkspaceController {
 
     @GetMapping
     public List<Workspace> getWorkspaces() {
-        return workspaceService.getWorkspaces();
+       return workspaceService.getWorkspaces();
     }
 
     @PostMapping
     public void addWorkspace(@RequestBody Workspace workspace) {
-        System.out.println(workspace);
-        //workspaceService.addWorkspace(workspace);
+        workspaceService.addWorkspace(workspace);
     }
 
     @PutMapping("/{id}")
-    public void updateWorkspace(@RequestBody Workspace newWorkspace, @PathVariable Long id) {
+    public void updateWorkspace(@RequestBody Workspace newWorkspace, @PathVariable int id) {
         workspaceService.updateWorkspace(id, newWorkspace);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteWorkspace(@PathVariable int id) {
+        workspaceService.deleteWorkspace(id);
     }
 }

@@ -23,7 +23,7 @@ public class CentralExceptionHandler {
 
     @ExceptionHandler(value = {Exception.class})
     public ResponseEntity<Object> handleException(Exception ex) {
-        return new ResponseEntity<Object>("Internal Server Error", HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<Object>("Internal Server Error "+ ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
 }

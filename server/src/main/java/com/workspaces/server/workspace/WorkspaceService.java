@@ -10,10 +10,10 @@ import java.util.List;
 @Service
 public class WorkspaceService {
 
-    private final WorkspaceRepository workspaceRepository;
+    private final WorkspaceDao workspaceRepository;
 
-    @Autowired
-    public WorkspaceService(WorkspaceRepository workspaceRepository) {
+
+    public WorkspaceService(WorkspaceDao workspaceRepository) {
         this.workspaceRepository = workspaceRepository;
     }
 
@@ -32,12 +32,10 @@ public class WorkspaceService {
         if (workspaceRepository.findByName(workspaceName).isPresent()) {
             throw new InvalidInputException("Workspace with name (" + workspaceName + ") already exists.");
         }
-
-        System.out.println(workspace);
         workspaceRepository.save(workspace);
     }
 
-    public void updateWorkspace(Long id, Workspace newWorkspace) throws InvalidInputException,NotFoundException{
+    public void updateWorkspace(int id, Workspace newWorkspace) throws InvalidInputException,NotFoundException{
 //        if (id == null) {
 //            throw new InvalidInputException("Field 'id' is required.");
 //        }
@@ -48,7 +46,16 @@ public class WorkspaceService {
         workspaceRepository.findById(id)
                 .map(workspace -> {
                     workspace.setName(newWorkspace.getName());
-                    return workspaceRepository.save(workspace);
+                    return workspaceRepository.update(workspace);
+                })
+                .orElseThrow(() -> new NotFoundException("Can't find Workspace with id:(" + id + ")"));
+    }
+
+    public void deleteWorkspace(int id) throws NotFoundException {
+
+        workspaceRepository.findById(id)
+                .map(workspace -> {
+                    return workspaceRepository.delete(id);
                 })
                 .orElseThrow(() -> new NotFoundException("Can't find Workspace with id:(" + id + ")"));
     }

@@ -1,42 +1,25 @@
 package com.workspaces.server.workspace;
 
-import com.sun.istack.NotNull;
-
-import javax.persistence.*;
-
-
-@Entity
-@Table
 public class Workspace {
 
-    @Id
-    @SequenceGenerator(
-            name = "workspace_sequence",
-            sequenceName = "workspace_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "workspace_sequence"
-    )
-    private Long id;
 
-    @NotNull
-    @Column(unique = true)
+    private int id;
     private String name;
-
-    public Workspace() {
-    }
 
     public Workspace(String name) {
         this.name = name;
     }
 
-    public Long getId() {
+    public Workspace(int id,String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

@@ -1,12 +1,12 @@
 package com.workspaces.server.ticket;
 
 public class Ticket {
-    private Long id;
+    private int id;
     private String name;
     private String type;
 
-    public Ticket(){}
-    public Ticket(String name, String type) {
+    public Ticket(int id, String name, String type) {
+        this.id= id;
         this.name = name;
         this.type = type;
     }
