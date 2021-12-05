@@ -17,7 +17,7 @@ public class WorkspaceDataAccess implements WorkspaceDao{
 
     @Override
     public List<Workspace> findAll() {
-        String sql = "SELECT id,name FROM workspace;";
+        String sql = "SELECT id,name FROM workspaces;";
         List<Workspace> workspacesList = jdbcTemplate.query(sql,(resultSet,i)->{
             return new Workspace(
                     resultSet.getInt("id"),
@@ -28,7 +28,7 @@ public class WorkspaceDataAccess implements WorkspaceDao{
 
     @Override
     public Optional<Workspace> findById(int id) {
-        String sql = "SELECT id,name FROM workspace WHERE id = ? ;" ;
+        String sql = "SELECT id,name FROM workspaces WHERE id = ? ;" ;
         List<Workspace> workspaces = jdbcTemplate.query(sql,(resultSet,i)->{
             return new Workspace(
                     resultSet.getInt("id"),
@@ -39,7 +39,7 @@ public class WorkspaceDataAccess implements WorkspaceDao{
 
     @Override
     public Optional<Workspace> findByName(String name) {
-        String sql = "SELECT id,name FROM workspace WHERE name = ? ;" ;
+        String sql = "SELECT id,name FROM workspaces WHERE name = ? ;" ;
         List<Workspace> workspaces = jdbcTemplate.query(sql,(resultSet,i)->{
             return new Workspace(
                     resultSet.getInt("id"),
@@ -50,19 +50,19 @@ public class WorkspaceDataAccess implements WorkspaceDao{
 
     @Override
     public int save(Workspace workspace) {
-        String sql = "INSERT INTO workspace(name) VALUES (?);";
+        String sql = "INSERT INTO workspaces(name) VALUES (?);";
         return jdbcTemplate.update(sql,workspace.getName());
     }
 
     @Override
     public int update(Workspace workspace) {
-        String sql = "UPDATE workspace SET name=? WHERE id=?;";
+        String sql = "UPDATE workspaces SET name=? WHERE id=?;";
         return jdbcTemplate.update(sql,workspace.getName(),workspace.getId());
     }
 
     @Override
     public int delete(int id){
-        String sql = "DELETE FROM workspace WHERE id=?;";
+        String sql = "DELETE FROM workspaces WHERE id=?;";
         return jdbcTemplate.update(sql,id);
     }
 }
