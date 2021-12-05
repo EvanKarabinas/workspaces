@@ -23,7 +23,8 @@ public class WorkspaceController {
 
     @PostMapping
     public void addWorkspace(@RequestBody Workspace workspace) {
-        workspaceService.addWorkspace(workspace);
+        System.out.println(workspace);
+        //workspaceService.addWorkspace(workspace);
     }
 
     @PutMapping("/{id}")

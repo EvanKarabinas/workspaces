@@ -37,7 +37,7 @@ public class WorkspaceService {
         workspaceRepository.save(workspace);
     }
 
-    public void updateWorkspace(Long id, Workspace newWorkspace) {
+    public void updateWorkspace(Long id, Workspace newWorkspace) throws InvalidInputException,NotFoundException{
 //        if (id == null) {
 //            throw new InvalidInputException("Field 'id' is required.");
 //        }
