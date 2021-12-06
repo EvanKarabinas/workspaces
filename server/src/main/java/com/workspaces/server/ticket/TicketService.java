@@ -49,6 +49,8 @@ public class TicketService {
     }
 
     public void deleteTicket(int id){
-        
+        ticketRepository.findById(id)
+                .map(ticket -> {return ticketRepository.delete(id);})
+                .orElseThrow(()->new NotFoundException("Ticket with id:"+ id +" doesn't exist."));
     }
 }
