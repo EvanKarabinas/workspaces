@@ -30,6 +30,9 @@ public class TicketService {
         if (ticket.getName() == null) {
             throw new InvalidInputException("Field 'name' is required.");
         }
+        if (ticket.getStatus() == null) {
+            throw new InvalidInputException("Field 'status' is required.");
+        }
         workspaceService.getWorkspace(workspaceId)
                 .map(workspace -> {return ticketRepository.save(ticket,workspaceId);})
                 .orElseThrow(()->new NotFoundException("Workspace with id:"+ workspaceId +" doesn't exist."));
@@ -39,10 +42,14 @@ public class TicketService {
         if (newTicket.getName() == null) {
             throw new InvalidInputException("Field 'name' is required.");
         }
+        if (newTicket.getStatus() == null) {
+            throw new InvalidInputException("Field 'status' is required.");
+        }
         ticketRepository.findById(id)
                 .map(ticket -> {
                     ticket.setName(newTicket.getName());
                     ticket.setType(newTicket.getType());
+                    ticket.setStatus(newTicket.getStatus());
                     return ticketRepository.update(ticket);})
                 .orElseThrow(()->new NotFoundException("Ticket with id:"+ id +" doesn't exist."));
 

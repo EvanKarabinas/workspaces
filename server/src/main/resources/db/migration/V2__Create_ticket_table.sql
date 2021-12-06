@@ -3,7 +3,9 @@ CREATE TABLE tickets(
     workspace_id INT,
     name TEXT NOT NULL,
     type VARCHAR(255),
+    status VARCHAR(255),
     CONSTRAINT fk_workspace
           FOREIGN KEY(workspace_id)
-    	  REFERENCES workspaces(id)
+    	        REFERENCES workspaces(id)
+    	        ON DELETE CASCADE
 )

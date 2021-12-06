@@ -5,12 +5,14 @@ public class Ticket {
     private int workspaceId;
     private String name;
     private String type;
+    private String status;
 
-    public Ticket(int id, int workspaceId, String name, String type) {
+    public Ticket(int id, int workspaceId, String name, String type,String status) {
         this.id= id;
         this.workspaceId=workspaceId;
         this.name = name;
         this.type = type;
+        this.status = status;
     }
 
     public int getId() {
@@ -43,6 +45,14 @@ public class Ticket {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     @Override
