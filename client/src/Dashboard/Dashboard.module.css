@@ -1,8 +1,13 @@
 .dashboardContainer {
-  background-color: lightpink;
+  background-color: white;
   display: flex;
   flex: 1;
   flex-direction: column;
+}
+
+.dashboardLabel {
+  font-weight: bold;
+  font-size: large;
 }
 
 .dashboardBody {

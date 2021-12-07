@@ -4,20 +4,20 @@ import TicketsContainer from "../TicketsContainer/TicketsContainer";
 import styles from "./Dashboard.module.css";
 
 function Dashboard() {
-  const [tickets, setTickets] = useState([]);
-
-  async function fetchWorkspaces() {
-    const response = await fetch("http://localhost:8080/api/workspaces");
-    const workspaces = await response.json();
-    console.log(workspaces);
-  }
+  const [selectedWorkspace, setSelectedWorkspace] = useState(null);
 
   return (
     <div className={styles.dashboardContainer}>
-      <p>Dashboard</p>
+      <p className={styles.dashboardLabel}>Dashboard</p>
       <div className={styles.dashboardBody}>
-        <WorkspacesContainer />
-        <TicketsContainer />
+        <WorkspacesContainer
+          selectedWorkspace={selectedWorkspace}
+          setSelectedWorkspace={setSelectedWorkspace}
+        />
+        <TicketsContainer
+          selectedWorkspace={selectedWorkspace}
+          setSelectedWorkspace={setSelectedWorkspace}
+        />
       </div>
     </div>
   );

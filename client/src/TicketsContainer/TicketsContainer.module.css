@@ -1,5 +1,17 @@
 .ticketsContainer {
   display: flex;
+  flex-direction: column;
   flex: 3;
-  background-color: lightgreen;
+  background-color: white;
+}
+
+.ticketsLabel {
+  font-weight: bold;
+  border-bottom: solid 1px rgb(231, 231, 231);
+  padding-bottom: 7px;
+  margin-top: 0px;
+}
+.columnsContainer {
+  display: flex;
+  gap: 15px;
 }

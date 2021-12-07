@@ -1,0 +1,36 @@
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  /* background-color: rgb(233, 233, 233); */
+  background-color: white;
+  border-radius: 7px;
+}
+
+.labelContainer {
+  display: flex;
+  flex: 1;
+  width: auto;
+  gap: 5px;
+  padding: 10px 30px 10px 10px;
+  font-size: medium;
+  font-weight: bold;
+  color: cornflowerblue;
+}
+
+.textInput {
+  width: 80%;
+  border: none;
+  border-bottom: 1px solid lightgray;
+}
+
+.textInput:focus {
+  outline: none;
+  border-bottom: 1px solid cornflowerblue;
+}
+.error {
+  margin: 0px;
+  padding: 0px;
+  font-size: small;
+  color: red;
+}

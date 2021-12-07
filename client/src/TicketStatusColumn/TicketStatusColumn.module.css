@@ -1,0 +1,46 @@
+.column {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  background-color: white;
+  margin-left: 10px;
+  align-items: stretch;
+}
+
+.toDoLabel {
+  background-color: rgb(255, 226, 221);
+  padding: 2px 5px 2px 5px;
+  margin: 0px 0px 5px 0px;
+  border-radius: 4px;
+  align-self: flex-start;
+  color: rgb(93, 23, 21, 0.8);
+  font-weight: bold;
+}
+
+.inProgressLabel {
+  background-color: rgb(253, 236, 200);
+  padding: 2px 5px 2px 5px;
+  margin: 0px 0px 5px 0px;
+  border-radius: 4px;
+  color: rgb(64, 44, 27, 0.8);
+  align-self: flex-start;
+  font-weight: bold;
+}
+
+.completedLabel {
+  background-color: rgb(219, 237, 219);
+  padding: 2px 5px 2px 5px;
+  margin: 0px 0px 5px 0px;
+  border-radius: 4px;
+  align-self: flex-start;
+  color: rgb(28, 56, 41, 0.8);
+  font-weight: bold;
+}
+
+.ticketList {
+  display: flex;
+  flex-direction: column;
+  margin: 0px;
+  padding: 0px;
+  gap: 10px;
+}
