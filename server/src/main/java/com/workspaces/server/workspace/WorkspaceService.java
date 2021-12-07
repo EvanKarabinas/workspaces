@@ -30,7 +30,7 @@ public class WorkspaceService {
 
         String workspaceName = workspace.getName();
 
-        if (workspaceName == null) {
+        if (workspaceName == null || workspace.getName().trim().length()==0) {
             throw new InvalidInputException("Field 'name' is required.");
         }
         if (workspaceRepository.findByName(workspaceName).isPresent()) {
@@ -43,7 +43,7 @@ public class WorkspaceService {
 //        if (id == null) {
 //            throw new InvalidInputException("Field 'id' is required.");
 //        }
-        if (newWorkspace.getName() == null) {
+        if (newWorkspace.getName() == null || newWorkspace.getName().trim().length()==0) {
             throw new InvalidInputException("Field 'name' is required.");
         }
 

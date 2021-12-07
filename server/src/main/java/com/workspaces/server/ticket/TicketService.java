@@ -27,10 +27,10 @@ public class TicketService {
     }
 
     public void addTicket(Ticket ticket, int workspaceId) {
-        if (ticket.getName() == null) {
+        if (ticket.getName() == null || ticket.getName().trim().length() == 0) {
             throw new InvalidInputException("Field 'name' is required.");
         }
-        if (ticket.getStatus() == null) {
+        if (ticket.getStatus() == null || ticket.getStatus().trim().length() == 0) {
             throw new InvalidInputException("Field 'status' is required.");
         }
         workspaceService.getWorkspace(workspaceId)
@@ -39,10 +39,10 @@ public class TicketService {
     }
 
     public void updateTicket(Ticket newTicket,int id){
-        if (newTicket.getName() == null) {
+        if (newTicket.getName() == null || newTicket.getName().trim().length() == 0) {
             throw new InvalidInputException("Field 'name' is required.");
         }
-        if (newTicket.getStatus() == null) {
+        if (newTicket.getStatus() == null || newTicket.getStatus().trim().length() == 0) {
             throw new InvalidInputException("Field 'status' is required.");
         }
         ticketRepository.findById(id)
