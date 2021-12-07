@@ -1,0 +1,5 @@
+.ticketsContainer {
+  display: flex;
+  flex: 3;
+  background-color: lightgreen;
+}

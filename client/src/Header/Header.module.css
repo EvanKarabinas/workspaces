@@ -1,0 +1,21 @@
+.headerContainer {
+  display: flex;
+  flex: 1;
+  padding: 20px;
+  align-items: center;
+}
+
+.headerLogo {
+  color: black;
+  margin: 0;
+  margin-right: 5px;
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.headerText {
+  color: black;
+  margin: 0;
+  font-size: medium;
+  flex-shrink: 1;
+}

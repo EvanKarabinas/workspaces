@@ -1,0 +1,12 @@
+.dashboardContainer {
+  background-color: lightpink;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.dashboardBody {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+}
