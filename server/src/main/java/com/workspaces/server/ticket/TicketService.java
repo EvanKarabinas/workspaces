@@ -27,24 +27,14 @@ public class TicketService {
     }
 
     public void addTicket(Ticket ticket, int workspaceId) {
-        if (ticket.getName() == null || ticket.getName().trim().length() == 0) {
-            throw new InvalidInputException("Field 'name' is required.");
-        }
-        if (ticket.getStatus() == null || ticket.getStatus().trim().length() == 0) {
-            throw new InvalidInputException("Field 'status' is required.");
-        }
+        checkTicketPayload(ticket);
         workspaceService.getWorkspace(workspaceId)
                 .map(workspace -> {return ticketRepository.save(ticket,workspaceId);})
                 .orElseThrow(()->new NotFoundException("Workspace with id:"+ workspaceId +" doesn't exist."));
     }
 
     public void updateTicket(Ticket newTicket,int id){
-        if (newTicket.getName() == null || newTicket.getName().trim().length() == 0) {
-            throw new InvalidInputException("Field 'name' is required.");
-        }
-        if (newTicket.getStatus() == null || newTicket.getStatus().trim().length() == 0) {
-            throw new InvalidInputException("Field 'status' is required.");
-        }
+        checkTicketPayload(newTicket);
         ticketRepository.findById(id)
                 .map(ticket -> {
                     ticket.setName(newTicket.getName());
@@ -59,5 +49,17 @@ public class TicketService {
         ticketRepository.findById(id)
                 .map(ticket -> {return ticketRepository.delete(id);})
                 .orElseThrow(()->new NotFoundException("Ticket with id:"+ id +" doesn't exist."));
+    }
+
+    private void checkTicketPayload(Ticket ticket) throws InvalidInputException{
+        if (ticket.getName() == null || ticket.getName().trim().length() == 0) {
+            throw new InvalidInputException("Field 'name' is required.");
+        }
+        if (ticket.getStatus() == null || ticket.getStatus().trim().length() == 0) {
+            throw new InvalidInputException("Field 'status' is required.");
+        }
+        if(!Ticket.getValidStatuses().contains(ticket.getStatus())){
+            throw new InvalidInputException("Invalid status type.");
+        }
     }
 }

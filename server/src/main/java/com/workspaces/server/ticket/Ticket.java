@@ -1,11 +1,17 @@
 package com.workspaces.server.ticket;
 
+import java.util.Set;
+
 public class Ticket {
     private int id;
     private int workspaceId;
     private String name;
     private String type;
     private String status;
+    private static final Set<String> STATUSES = Set.of(
+            "to-do","in-progress","completed"
+    );
+
 
     public Ticket(int id, int workspaceId, String name, String type,String status) {
         this.id= id;
@@ -13,6 +19,10 @@ public class Ticket {
         this.name = name;
         this.type = type;
         this.status = status;
+    }
+
+    public static Set<String> getValidStatuses() {
+        return STATUSES;
     }
 
     public int getId() {

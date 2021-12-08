@@ -28,24 +28,15 @@ public class WorkspaceService {
 
     public void addWorkspace(Workspace workspace) throws InvalidInputException {
 
-        String workspaceName = workspace.getName();
+        checkWorkspacePayload(workspace);
 
-        if (workspaceName == null || workspace.getName().trim().length()==0) {
-            throw new InvalidInputException("Field 'name' is required.");
-        }
-        if (workspaceRepository.findByName(workspaceName).isPresent()) {
-            throw new InvalidInputException("Workspace with name (" + workspaceName + ") already exists.");
-        }
+
         workspaceRepository.save(workspace);
     }
 
     public void updateWorkspace(int id, Workspace newWorkspace) throws InvalidInputException,NotFoundException{
-//        if (id == null) {
-//            throw new InvalidInputException("Field 'id' is required.");
-//        }
-        if (newWorkspace.getName() == null || newWorkspace.getName().trim().length()==0) {
-            throw new InvalidInputException("Field 'name' is required.");
-        }
+
+        checkWorkspacePayload(newWorkspace);
 
         workspaceRepository.findById(id)
                 .map(workspace -> {
@@ -62,5 +53,15 @@ public class WorkspaceService {
                     return workspaceRepository.delete(id);
                 })
                 .orElseThrow(() -> new NotFoundException("Can't find Workspace with id:(" + id + ")"));
+    }
+
+    private void checkWorkspacePayload(Workspace workspace) {
+        String workspaceName = workspace.getName();
+        if (workspaceName == null || workspace.getName().trim().length() == 0) {
+            throw new InvalidInputException("Field 'name' is required.");
+        }
+        if (workspaceRepository.findByName(workspaceName).isPresent()) {
+            throw new InvalidInputException("Workspace with name (" + workspaceName + ") already exists.");
+        }
     }
 }
