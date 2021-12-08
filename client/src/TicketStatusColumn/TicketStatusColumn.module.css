@@ -44,3 +44,18 @@
   padding: 0px;
   gap: 10px;
 }
+
+.newTicketButton {
+  background-color: rgb(241, 241, 241);
+  border: none;
+  border-radius: 6px;
+  padding: 8px;
+  margin: 10px;
+  font-weight: bold;
+  color: rgb(141, 141, 141);
+}
+
+.newTicketButton:hover {
+  background-color: rgb(226, 226, 226);
+  cursor: pointer;
+}

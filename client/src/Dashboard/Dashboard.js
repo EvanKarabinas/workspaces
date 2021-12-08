@@ -8,7 +8,7 @@ function Dashboard() {
 
   return (
     <div className={styles.dashboardContainer}>
-      <p className={styles.dashboardLabel}>Dashboard</p>
+      <p className={styles.dashboardLabel}>📂 Dashboard</p>
       <div className={styles.dashboardBody}>
         <WorkspacesContainer
           selectedWorkspace={selectedWorkspace}

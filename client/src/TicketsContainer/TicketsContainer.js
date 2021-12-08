@@ -26,9 +26,24 @@ function TicketsContainer({ selectedWorkspace }) {
     <div className={styles.ticketsContainer}>
       <p className={styles.ticketsLabel}>🔖 Tickets</p>
       <div className={styles.columnsContainer}>
-        <TicketStatusColumn tickets={tickets} columnStatus={"To Do"} />
-        <TicketStatusColumn tickets={tickets} columnStatus={"In Progress"} />
-        <TicketStatusColumn tickets={tickets} columnStatus={"Completed"} />
+        <TicketStatusColumn
+          tickets={tickets}
+          columnStatus={"to-do"}
+          selectedWorkspace={selectedWorkspace}
+          setTickets={setTickets}
+        />
+        <TicketStatusColumn
+          tickets={tickets}
+          columnStatus={"in-progress"}
+          selectedWorkspace={selectedWorkspace}
+          setTickets={setTickets}
+        />
+        <TicketStatusColumn
+          tickets={tickets}
+          columnStatus={"completed"}
+          selectedWorkspace={selectedWorkspace}
+          setTickets={setTickets}
+        />
       </div>
     </div>
   );

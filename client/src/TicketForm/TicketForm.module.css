@@ -1,0 +1,140 @@
+.backdropContainer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: black;
+  opacity: 0.4;
+  z-index: 1;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  right: 0;
+  width: 300px;
+  height: 170px;
+  margin-top: -100px;
+  margin-left: -100px;
+  background-color: white;
+  opacity: 1;
+  padding: 20px 0px 20px 30px;
+  align-items: flex-start;
+  border-radius: 11px;
+  z-index: 1;
+}
+.nameInput {
+  width: auto;
+  font-size: large;
+  padding: 7px;
+  margin: 0px;
+  border: none;
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.nameInput:focus {
+  outline: none;
+  border-bottom: 1px solid cornflowerblue;
+}
+.typeContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  font-size: small;
+}
+.typeInput {
+  flex: 1;
+  border: none;
+  border-bottom: 1px solid lightgray;
+  padding: 2px;
+}
+.typeInput:hover {
+  background-color: rgb(235, 235, 235);
+  border-radius: 3px;
+}
+
+.typeInput:focus {
+  outline: none;
+}
+.statusContainer {
+  margin: 5px;
+  display: flex;
+}
+.detailsContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.labels {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  font-size: small;
+  padding: 0px;
+  margin: 0px;
+
+  align-items: flex-start;
+  justify-content: center;
+}
+.label {
+  padding: 4px;
+  margin: 0px;
+  font-weight: bold;
+  color: grey;
+}
+.inputs {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: stretch;
+  justify-content: center;
+
+  font-size: small;
+}
+
+.dropDown {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex: 1;
+}
+
+.optionsButton {
+  background-color: white;
+  border: none;
+  width: 100%;
+}
+.optionsButton:hover {
+  background-color: rgb(235, 235, 235);
+  border-radius: 3px;
+}
+
+.option {
+  background-color: white;
+  border: none;
+}
+
+.option:hover {
+  background-color: rgb(233, 233, 233);
+}
+
+.submitButton {
+  margin-top: 30px;
+  flex: 1;
+  width: 100%;
+  background-color: cornflowerblue;
+  border: none;
+  padding: 5px;
+  border-radius: 7px;
+  color: white;
+  font-weight: bold;
+}
